@@ -37,9 +37,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Ações:</h6>
-                <a class="collapse-item" href="buttons.html"><i class="fas fa-solid fa-plus"></i>
+                <a class="collapse-item" href="{{route('users.create')}}"><i class="fas fa-solid fa-plus"></i>
                     <span>Adicionar</span></a>
-                <a class="collapse-item" href="cards.html"><i class="fas fa-solid fa-list"></i>
+                <a class="collapse-item" href="{{route('users.index')}}"><i class="fas fa-solid fa-list"></i>
                     <span>Listar</span></a>
             </div>
         </div>

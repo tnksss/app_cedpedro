@@ -25,25 +25,23 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            @include('layouts.topbar')
             <!-- Main Content -->
             <div id="content">
 
-                @include('layouts.topbar')
+                
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">@yield('header')</h1>
                         
-                       
+                          
                     </div>
-                    <main>
-                        {{ $slot }}
-                    </main>
-                   
+                    <hr>
+                    @yield('content')
                        
 
                    
@@ -82,15 +80,27 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Pronto para sair?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Selecione "Sair" caso deseje encessar esta sessão.</div>
+                
+                
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+    
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Sair') }}
+                        </x-dropdown-link>
+                    </form>
+                
                 </div>
             </div>
         </div>
@@ -98,7 +108,6 @@
 
    
 
-</body>
     
     <!-- Scripts -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}" ></script>

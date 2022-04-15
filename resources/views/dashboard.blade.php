@@ -1,5 +1,7 @@
-<x-app-layout>
-    <div class="row">
+@extends('layouts.app') 
+@section('header','Dashboard')
+@section('content')
+<div class="row">
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -18,4 +20,6 @@
                 </div>
             </div>
         </div>
-</x-app-layout>
+</div>
+
+@endsection
