@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
     <div class="row">
 
         <!-- Earnings (Monthly) Card Example -->
@@ -18,4 +19,4 @@
                 </div>
             </div>
         </div>
-</x-app-layout>
+@endsection

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FolderController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +22,20 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::controller(FolderController::class)->middleware('auth')->group(function(){
+    Route::get('folders','index')
+                ->name('folders.index');
+
+    
+
+    Route::get('folders/create','create')
+                ->name('folders.create');
+
+    Route::post('folders','store')
+                ->name('folders.store');
+    Route::get('folders/{id}','show')
+                ->name('folders.show');
+});
 
 require __DIR__.'/auth.php';
