@@ -41,10 +41,7 @@
                           
                     </div>
                     <hr>
-                    @yield('content')
-                       
-
-                   
+                    @yield('content')                
                  
                     
                 </div>
