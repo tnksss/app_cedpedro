@@ -20,4 +20,16 @@ class Folder extends Model
         'description'
     ];
 
+    private $a=1200, $b=150, $c=50;
+    public function makeLabel()
+    {
+        $this->door = intdiv($this->id,$a);
+        $this->shelf = intdiv($this->id,$b);
+        $this->box = intdiv($this->id,$c);
+        $this->label = $this->door.$this->shelf.$this->box.$this->id;
+        return ($this->label);
+    }
+
+
+
 }

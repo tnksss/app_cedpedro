@@ -16,7 +16,9 @@ class FolderController extends Controller
      */
     public function index()
     {
+        
         $folders = Folder::all();
+        
         return view ('folders.index',compact('folders'));
     }
 
@@ -45,11 +47,12 @@ class FolderController extends Controller
             'birth_date'    => 'required',
         ]);
         Folder::create($request->all());
-              
+        Folder::last()->makeLabel();
         return Redirect()->route('folders.index')
                 ->with('sucess','Pasta Armazenada com sucesso');
         
     }
+
 
     /**
      * Display the specified resource.
@@ -94,5 +97,10 @@ class FolderController extends Controller
     public function destroy(Folder $folder)
     {
         //
+    }
+
+    public function addLabel()
+    {
+
     }
 }
